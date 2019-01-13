@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule, MatIconModule, MatToolbarModule, MatInputModule, MatCardModule, MatRadioModule, MatStepperModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatIconModule, MatToolbarModule, MatInputModule, MatCardModule, MatRadioModule, MatStepperModule, MatTableModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +13,7 @@ import { ProductTeaserComponent } from './product-teaser/product-teaser.componen
 import { ProductOverviewComponent } from './product-overview/product-overview.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { RegistrationComponent } from './registration/registration.component';
     ProductTeaserComponent,
     ProductOverviewComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { RegistrationComponent } from './registration/registration.component';
     MatInputModule,
     MatCardModule,
     MatRadioModule,
-    MatStepperModule
+    MatStepperModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,22 @@
+table {
+    width: 100%;
+}
+  
+tr.mat-footer-row {
+    font-weight: bold;
+}
+.product-image {
+    float: left;
+    padding: 10px 0
+}
+
+.product-description {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: flex-end
+}
