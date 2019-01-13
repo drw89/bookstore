@@ -10,7 +10,7 @@ export class RegistrationComponent implements OnInit {
   isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
-
+  thirdFormGroup: FormGroup;
   constructor(private _formBuilder: FormBuilder) {}
 
   ngOnInit() {
@@ -18,6 +18,9 @@ export class RegistrationComponent implements OnInit {
       firstCtrl: ['', Validators.required]
     });
     this.secondFormGroup = this._formBuilder.group({
+      secondCtrl: ['', Validators.required]
+    });
+    this.thirdFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required]
     });
   }
