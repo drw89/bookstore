@@ -1,0 +1,13 @@
+.product-teaser {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 200px;
+    height: 400px;
+    margin: 5px;
+}
+
+.product-title {
+    text-align: center;
+}

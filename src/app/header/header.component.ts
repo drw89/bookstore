@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  productSearchOpen: boolean;
+  constructor() {
+    this.productSearchOpen = false;
+  }
 
   ngOnInit() {
   }
 
+  toggleProductSearch = () => {
+    this.productSearchOpen = !this.productSearchOpen;
+  }
 }

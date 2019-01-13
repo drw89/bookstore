@@ -1,0 +1,74 @@
+<mat-card class="registration-wrapper">
+  <mat-card-header>
+  <mat-card-title>Registration</mat-card-title>
+  </mat-card-header>
+  <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Personal Data</ng-template>
+        <mat-form-field class="input-full-width">
+            <input matInput placeholder="First Name" name="firstName" required>
+          </mat-form-field>
+          <mat-form-field class="input-full-width">
+            <input matInput placeholder="Last Name" name="lastName" required>
+          </mat-form-field>
+          <mat-form-field class="input-full-width">
+            <input matInput placeholder="Email" type="email" name="email" required>
+          </mat-form-field>
+          <mat-form-field class="input-full-width">
+            <input matInput placeholder="Street" name="street" required>
+          </mat-form-field>
+          <mat-form-field class="input-full-width">
+            <input matInput placeholder="City" name="city" required>
+          </mat-form-field>
+          <mat-form-field class="input-full-width">
+            <input matInput placeholder="Country" name="country" required>
+          </mat-form-field>
+          <mat-form-field class="input-full-width">
+            <input matInput placeholder="State Province" name="stateProvince" required>
+          </mat-form-field>
+        <div class="start-button-wrapper">
+          <button mat-stroked-button matStepperNext color="primary">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+        <label>Credit Card Type:</label>
+        <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Payment Data</ng-template>
+            <mat-radio-group>
+                <mat-radio-button value="MASTERCARD">Mastercard</mat-radio-button>
+                <mat-radio-button value="VISA">Visa</mat-radio-button>
+            </mat-radio-group>
+            <mat-form-field class="input-full-width">
+              <input matInput placeholder="CreditCard Number" name="creditCardNumber" required>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Expiration Month" type="number" name="expirationMonth" required>
+            </mat-form-field>
+            <mat-form-field class="input-number">
+              <input matInput placeholder="Expiration Year" type="number" name="expirationYear" required>
+            </mat-form-field>
+            <div class="button-wrapper">
+              <button mat-stroked-button matStepperPrevious color="accent">Back</button>
+              <button mat-stroked-button matStepperNext color="primary">Next</button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step [stepControl]="thirdFormGroup">
+        <form [formGroup]="thirdFormGroup">
+            <ng-template matStepLabel>Login Data</ng-template>
+            <mat-form-field class="input-full-width">
+                <input matInput placeholder="Username" name="username" required>
+              </mat-form-field>
+              <mat-form-field class="input-full-width">
+                <input matInput placeholder="Password" type="password" name="password" required>
+              </mat-form-field>
+            <div class="button-wrapper">
+              <button mat-stroked-button matStepperPrevious color="accent">Back</button>
+              <button mat-raised-button color="primary">Create Account</button>
+            </div>
+        </form>
+    </mat-step>
+  </mat-horizontal-stepper>
+</mat-card>
