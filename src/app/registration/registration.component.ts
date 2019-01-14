@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegistrationComponent implements OnInit {
   isLinear: boolean = false;
   sectionTitles: string [];
-  firstFormGroup: FormGroup;
+
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
   constructor(private _formBuilder: FormBuilder) {
@@ -17,9 +17,6 @@ export class RegistrationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
     this.secondFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required]
     });

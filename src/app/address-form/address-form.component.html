@@ -1,27 +1,27 @@
-<form [formGroup]="formGroup">
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
   <mat-form-field class="input-full-width">
-      <input matInput placeholder="First Name" name="firstName" required>
+      <input matInput placeholder="First Name" name="firstName" formControlName="firstName" required>
+    </mat-form-field>
+   <mat-form-field class="input-full-width">
+      <input matInput placeholder="Last Name" name="lastName" formControlName="lastName" required>
     </mat-form-field>
     <mat-form-field class="input-full-width">
-      <input matInput placeholder="Last Name" name="lastName" required>
+      <input matInput placeholder="Email" type="email" name="email" formControlName="email" required>
     </mat-form-field>
     <mat-form-field class="input-full-width">
-      <input matInput placeholder="Email" type="email" name="email" required>
+      <input matInput placeholder="Street" name="street" formControlName="street" required>
     </mat-form-field>
     <mat-form-field class="input-full-width">
-      <input matInput placeholder="Street" name="street" required>
+      <input matInput placeholder="City" name="city" formControlName="city" required>
     </mat-form-field>
     <mat-form-field class="input-full-width">
-      <input matInput placeholder="City" name="city" required>
+      <input matInput placeholder="Country" name="country" formControlName="country" required>
     </mat-form-field>
     <mat-form-field class="input-full-width">
-      <input matInput placeholder="Country" name="country" required>
-    </mat-form-field>
-    <mat-form-field class="input-full-width">
-      <input matInput placeholder="State Province" name="stateProvince" required>
+      <input matInput placeholder="State Province" name="stateProvince" formControlName="stateProvince" required>
     </mat-form-field>
   <div class="button-wrapper">
-    <button mat-stroked-button matStepperNext color="primary">Next</button>
+    <button type="submit" mat-stroked-button matStepperNext color="primary">Next</button>
   </div>
 </form>
 

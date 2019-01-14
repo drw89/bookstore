@@ -5,11 +5,11 @@
   <mat-horizontal-stepper [linear]="isLinear" #stepper>
     <mat-step [stepControl]="firstFormGroup">
         <ng-template matStepLabel>{{sectionTitles[0]}}</ng-template>
-        <app-address-form [formGroup]="firstFormGroup"></app-address-form>
+        <app-address-form></app-address-form>
     </mat-step>
     <mat-step [stepControl]="secondFormGroup">
         <ng-template matStepLabel>{{sectionTitles[1]}}</ng-template>
-        <app-payment-form [formGroup]="secondFormGroup"></app-payment-form>
+        <app-payment-form></app-payment-form>
     </mat-step>
     <mat-step [stepControl]="thirdFormGroup">
         <ng-template matStepLabel>{{sectionTitles[2]}}</ng-template>
