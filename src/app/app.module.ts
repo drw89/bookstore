@@ -19,6 +19,7 @@ import { AddressFormComponent } from './address-form/address-form.component';
 import { PaymentFormComponent } from './payment-form/payment-form.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
     AddressFormComponent,
     PaymentFormComponent,
     OrderSummaryComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,

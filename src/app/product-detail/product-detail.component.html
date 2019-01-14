@@ -1,0 +1,47 @@
+<mat-card class="card-container">
+<div class="product-container">
+    <img class="product-image" src={{product.imageUrl}}>
+    <div class="product-classifications">
+      <h1 class="mat-h1">{{product.title}}</h1>
+      <table>
+        <span class="mat-h3">{{product.subtitle}}</span>
+        <tr>
+          <td><span class="mat-body">ISBN: </span></td>
+          <td><span class="mat-body">{{product.isbn}}</span></td>
+        </tr>
+        <tr>
+          <td><span class="mat-body">Authors: </span></td>
+          <td><span class="mat-body">{{product.authors}}</span></td>
+        </tr>
+        <tr>
+          <td><span class="mat-body">Publisher: </span></td>
+          <td><span class="mat-body">{{product.publisher}}</span></td>
+        </tr>
+        <tr>
+          <td><span class="mat-body">Publication Year: </span></td>
+          <td><span class="mat-body">{{product.publicationYear}}</span></td>
+        </tr>
+        <tr>
+          <td><span class="mat-body">Number of Pages: </span></td>
+          <td><span class="mat-body">{{product.numberOfPages}}</span></td>
+        </tr>
+      </table>
+    </div>
+    <div class="action-container">
+      <span class="mat-h2">{{product.price}} CHF</span>
+      <button mat-raised-button color="primary">
+        <mat-icon class="example-icon">shopping_cart</mat-icon>
+        <span>Add to Cart</span>
+      </button>
+    </div>
+  </div>
+  <p class="mat-body">{{product.description}}</p>
+  <div class="back-button">
+      <button mat-button>
+          <mat-icon class="example-icon">keyboard_backspace</mat-icon>
+          <span>Back</span>
+      </button>
+  </div>
+</mat-card>
+
+
