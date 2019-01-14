@@ -7,7 +7,6 @@ import { MatButtonModule, MatCheckboxModule, MatIconModule, MatToolbarModule, Ma
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LayoutComponent } from './layout/layout.component';
 import { HeaderComponent } from './header/header.component';
 import { ProductTeaserComponent } from './product-teaser/product-teaser.component';
 import { ProductOverviewComponent } from './product-overview/product-overview.component';
@@ -26,7 +25,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent,
     HeaderComponent,
     ProductTeaserComponent,
     ProductOverviewComponent,
