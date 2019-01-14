@@ -1,9 +1,6 @@
-.login-wrapper {
-    width: 300px;
-
-    @media only screen and (max-width: 600px) {
-        width: 250px;
-    }
+.login-container{
+    width: 400px;
+    margin: 0 auto;
 }
 
 .login-from {
@@ -15,3 +12,13 @@
     width: 100%;
     margin: 5px;
 }
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+
+    button {
+        margin: 10px;
+    }
+}
+

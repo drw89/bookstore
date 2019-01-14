@@ -20,6 +20,8 @@ import { PaymentFormComponent } from './payment-form/payment-form.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { HomeComponent } from './home/home.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     PaymentFormComponent,
     OrderSummaryComponent,
     LoginFormComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    HomeComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

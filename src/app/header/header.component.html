@@ -1,12 +1,18 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row *ngIf="!productSearchOpen">
-    <span>Bookstore</span>
+    <a routerLink="/">
+        <span>Bookstore</span>
+    </a>
     <span class="example-spacer"></span>
     <button mat-button (click) ="toggleProductSearch()">
       <mat-icon class="example-icon">search</mat-icon>
     </button>
-    <mat-icon class="example-icon">account_circle</mat-icon>
-    <mat-icon class="example-icon">shopping_cart</mat-icon>
+    <a routerLink="/login">
+        <mat-icon class="example-icon">account_circle</mat-icon>
+    </a>
+    <a routerLink="/cart">
+        <mat-icon class="example-icon">shopping_cart</mat-icon>
+    </a>
   </mat-toolbar-row>
   <mat-toolbar-row *ngIf="productSearchOpen">
       <button mat-button>
