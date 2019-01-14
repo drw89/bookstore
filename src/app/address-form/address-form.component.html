@@ -1,26 +1,27 @@
-<form [formGroup]="firstFormGroup">
+<form [formGroup]="formGroup">
+  <mat-form-field class="input-full-width">
+      <input matInput placeholder="First Name" name="firstName" required>
+    </mat-form-field>
     <mat-form-field class="input-full-width">
-        <input matInput placeholder="First Name" name="firstName" required>
-      </mat-form-field>
-      <mat-form-field class="input-full-width">
-        <input matInput placeholder="Last Name" name="lastName" required>
-      </mat-form-field>
-      <mat-form-field class="input-full-width">
-        <input matInput placeholder="Email" type="email" name="email" required>
-      </mat-form-field>
-      <mat-form-field class="input-full-width">
-        <input matInput placeholder="Street" name="street" required>
-      </mat-form-field>
-      <mat-form-field class="input-full-width">
-        <input matInput placeholder="City" name="city" required>
-      </mat-form-field>
-      <mat-form-field class="input-full-width">
-        <input matInput placeholder="Country" name="country" required>
-      </mat-form-field>
-      <mat-form-field class="input-full-width">
-        <input matInput placeholder="State Province" name="stateProvince" required>
-      </mat-form-field>
-    <div class="button-wrapper">
-      <button mat-stroked-button matStepperNext color="primary">Next</button>
-    </div>
-  </form>
+      <input matInput placeholder="Last Name" name="lastName" required>
+    </mat-form-field>
+    <mat-form-field class="input-full-width">
+      <input matInput placeholder="Email" type="email" name="email" required>
+    </mat-form-field>
+    <mat-form-field class="input-full-width">
+      <input matInput placeholder="Street" name="street" required>
+    </mat-form-field>
+    <mat-form-field class="input-full-width">
+      <input matInput placeholder="City" name="city" required>
+    </mat-form-field>
+    <mat-form-field class="input-full-width">
+      <input matInput placeholder="Country" name="country" required>
+    </mat-form-field>
+    <mat-form-field class="input-full-width">
+      <input matInput placeholder="State Province" name="stateProvince" required>
+    </mat-form-field>
+  <div class="button-wrapper">
+    <button mat-stroked-button matStepperNext color="primary">Next</button>
+  </div>
+</form>
+

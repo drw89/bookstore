@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-payment-form',
@@ -7,12 +7,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./payment-form.component.scss']
 })
 export class PaymentFormComponent implements OnInit {
-  secondFormGroup: FormGroup;
-  constructor(private _formBuilder: FormBuilder) { }
+  @Input() formGroup: FormGroup;
+  constructor() { }
 
-  ngOnInit() {
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
-  }
+  ngOnInit() {}
 }

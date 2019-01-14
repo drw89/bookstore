@@ -18,6 +18,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { AddressFormComponent } from './address-form/address-form.component';
 import { PaymentFormComponent } from './payment-form/payment-form.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
     CheckoutComponent,
     AddressFormComponent,
     PaymentFormComponent,
-    OrderSummaryComponent
+    OrderSummaryComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,

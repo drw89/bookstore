@@ -4,27 +4,16 @@
   </mat-card-header>
   <mat-horizontal-stepper [linear]="isLinear" #stepper>
     <mat-step [stepControl]="firstFormGroup">
-        <ng-template matStepLabel>Personal Data</ng-template>
-        <app-address-form></app-address-form>
+        <ng-template matStepLabel>{{sectionTitles[0]}}</ng-template>
+        <app-address-form [formGroup]="firstFormGroup"></app-address-form>
     </mat-step>
     <mat-step [stepControl]="secondFormGroup">
-        <ng-template matStepLabel>Payment Data</ng-template>
-        <app-payment-form></app-payment-form>
+        <ng-template matStepLabel>{{sectionTitles[1]}}</ng-template>
+        <app-payment-form [formGroup]="secondFormGroup"></app-payment-form>
     </mat-step>
     <mat-step [stepControl]="thirdFormGroup">
-        <form [formGroup]="thirdFormGroup">
-            <ng-template matStepLabel>Login Data</ng-template>
-            <mat-form-field class="input-full-width">
-                <input matInput placeholder="Username" name="username" required>
-              </mat-form-field>
-              <mat-form-field class="input-full-width">
-                <input matInput placeholder="Password" type="password" name="password" required>
-              </mat-form-field>
-            <div class="button-wrapper">
-              <button mat-stroked-button matStepperPrevious color="accent">Back</button>
-              <button mat-raised-button color="primary">Create Account</button>
-            </div>
-        </form>
+        <ng-template matStepLabel>{{sectionTitles[2]}}</ng-template>
+        <app-login-form [formGroup]="thirdFormGroup"></app-login-form>
     </mat-step>
   </mat-horizontal-stepper>
 </mat-card>

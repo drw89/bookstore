@@ -1,0 +1,12 @@
+<form [formGroup]="formGroup">
+    <mat-form-field class="input-full-width">
+        <input matInput placeholder="Username" name="username" required>
+      </mat-form-field>
+      <mat-form-field class="input-full-width">
+        <input matInput placeholder="Password" type="password" name="password" required>
+      </mat-form-field>
+    <div class="button-wrapper">
+      <button mat-stroked-button matStepperPrevious color="accent">Back</button>
+      <button mat-raised-button color="primary">Create Account</button>
+    </div>
+</form>

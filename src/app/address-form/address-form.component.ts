@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-address-form',
@@ -7,12 +7,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./address-form.component.scss']
 })
 export class AddressFormComponent implements OnInit {
-  firstFormGroup: FormGroup;
-  constructor(private _formBuilder: FormBuilder) { }
+  @Input() formGroup: FormGroup;
+  constructor() { }
 
-  ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
-  }
+  ngOnInit() {}
 }

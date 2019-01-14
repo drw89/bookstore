@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
@@ -7,11 +7,14 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['registration.component.scss'],
 })
 export class RegistrationComponent implements OnInit {
-  isLinear = false;
+  isLinear: boolean = false;
+  sectionTitles: string [];
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(private _formBuilder: FormBuilder) {
+    this.sectionTitles = ['Personal Data', 'Payment Data', 'Login Data'];
+  }
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
@@ -21,7 +24,7 @@ export class RegistrationComponent implements OnInit {
       secondCtrl: ['', Validators.required]
     });
     this.thirdFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+      thirdCtrl: ['', Validators.required]
     });
   }
 }

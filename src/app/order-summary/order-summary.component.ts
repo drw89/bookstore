@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-order-summary',
@@ -8,15 +8,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class OrderSummaryComponent implements OnInit {
   displayedColumns: string[];
-  thirdFormGroup: FormGroup;
-  @Input() cart;
-  constructor(private _formBuilder: FormBuilder) { 
+  @Input() formGroup: FormGroup;
+  @Input() cart: any;
+  constructor() { 
     this.displayedColumns = ['item','quantity','cost'];
   }
 
-  ngOnInit() {
-    this.thirdFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
-  }
+  ngOnInit() {}
 }
