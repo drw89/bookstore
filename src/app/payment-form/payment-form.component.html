@@ -1,0 +1,20 @@
+<form [formGroup]="secondFormGroup">
+    <label>Credit Card Type:</label>
+    <mat-radio-group class="radio-wrapper">
+        <mat-radio-button value="MASTERCARD">Mastercard</mat-radio-button>
+        <mat-radio-button value="VISA">Visa</mat-radio-button>
+    </mat-radio-group>
+    <mat-form-field class="input-full-width">
+      <input matInput placeholder="CreditCard Number" name="creditCardNumber" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Expiration Month" type="number" name="expirationMonth" required>
+    </mat-form-field>
+    <mat-form-field class="input-number">
+      <input matInput placeholder="Expiration Year" type="number" name="expirationYear" required>
+    </mat-form-field>
+    <div class="button-wrapper">
+      <button mat-stroked-button matStepperPrevious color="accent">Back</button>
+      <button mat-stroked-button matStepperNext color="primary">Next</button>
+    </div>
+</form>

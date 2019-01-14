@@ -15,6 +15,9 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { AddressFormComponent } from './address-form/address-form.component';
+import { PaymentFormComponent } from './payment-form/payment-form.component';
+import { OrderSummaryComponent } from './order-summary/order-summary.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { CheckoutComponent } from './checkout/checkout.component';
     LoginComponent,
     RegistrationComponent,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    AddressFormComponent,
+    PaymentFormComponent,
+    OrderSummaryComponent
   ],
   imports: [
     BrowserModule,
