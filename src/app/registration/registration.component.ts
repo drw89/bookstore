@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChildren } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -9,20 +9,26 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegistrationComponent implements OnInit {
   isLinear: boolean = false;
   sectionTitles: string [];
-
-  secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
+  allFormValues = {};
+  allFormValidation = [];
+  registrationValid = false;
   constructor(private _formBuilder: FormBuilder) {
     this.sectionTitles = ['Personal Data', 'Payment Data', 'Login Data'];
+    this.allFormValidation = [false, false, false];
   }
 
   ngOnInit() {
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
-    this.thirdFormGroup = this._formBuilder.group({
-      thirdCtrl: ['', Validators.required]
-    });
+  }
+
+  handleFormData(values: any) {
+    // merge all form values from all forms
+    this.allFormValues = Object.assign(this.allFormValues, values);
+  }
+
+  handleFormValidation(formValidation: any) {
+    this.allFormValidation[formValidation.id] = formValidation.valid;
+    this.registrationValid = this.allFormValidation.every(val => val === true);
   }
 }
 

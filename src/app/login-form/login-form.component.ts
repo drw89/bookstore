@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -8,6 +8,10 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 })
 export class LoginFormComponent implements OnInit {
   formGroup: FormGroup;
+  id: number = 2;
+  @Input() registrationValid: boolean;
+  @Output() handleFormData = new EventEmitter();
+  @Output() handleFormValidation = new EventEmitter();
   constructor(private formBuilder: FormBuilder) { 
     this.formGroup = new FormGroup({
       username: new FormControl(),
@@ -15,7 +19,12 @@ export class LoginFormComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.formGroup.valueChanges.subscribe(val => {
+      this.handleFormValidation.emit({ id : this.id, valid: this.formGroup.valid });
+      this.handleFormData.emit(val);
+    });
+  }
 
   onSubmit() {
     console.log('submitted: ', this.formGroup.value);

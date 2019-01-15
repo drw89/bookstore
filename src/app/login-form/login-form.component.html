@@ -7,6 +7,6 @@
       </mat-form-field>
     <div class="button-wrapper">
       <button mat-stroked-button matStepperPrevious color="accent">Back</button>
-      <button type="submit" mat-raised-button color="primary">Create Account</button>
+      <button type="submit" [disabled]="!registrationValid" mat-raised-button color="primary">Create Account</button>
     </div>
 </form>
