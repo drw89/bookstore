@@ -36,6 +36,6 @@
     <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
   </table>
   <mat-card-actions class="button-wrapper">
-      <button mat-raised-button color="primary">Continue Checkout</button>
+      <button (click)="navigateToCart()" mat-raised-button color="primary">Continue Checkout</button>
   </mat-card-actions>
 </mat-card> 

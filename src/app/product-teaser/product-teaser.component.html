@@ -1,9 +1,11 @@
 <mat-card class="product-teaser">
-  <img src="https://placekitten.com/g/150/200">
+  <a routerLink="/product/{{book.isbn}}">
+      <img src="https://placekitten.com/g/150/200">
+  </a>
   <span class="product-title">{{book.title}}</span>
   <span class="mat-body"> from: {{book.authors}}</span>
   <span>{{book.price}} CHF</span>
-  <button mat-button>
+  <button mat-raised-button color="primary">
     <mat-icon class="example-icon">shopping_cart</mat-icon>
     <span>Add to Cart</span>
   </button>

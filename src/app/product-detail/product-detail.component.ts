@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { sampleProduct } from './sampleProduct';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-product-detail',
@@ -8,10 +9,14 @@ import { sampleProduct } from './sampleProduct';
 })
 export class ProductDetailComponent implements OnInit {
   product: any;
-  constructor() {
+  constructor(private location: Location) {
     this.product = sampleProduct;
   }
 
   ngOnInit() {
+  }
+
+  navigateBack() {
+    this.location.back();
   }
 }

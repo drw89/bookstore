@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   productSearchOpen: boolean;
-  constructor() {
+  searchTerm: string;
+  constructor(private router: Router) {
     this.productSearchOpen = false;
   }
 
@@ -16,5 +18,9 @@ export class HeaderComponent implements OnInit {
 
   toggleProductSearch = () => {
     this.productSearchOpen = !this.productSearchOpen;
+  }
+
+  startProductSearch = () => {
+    this.router.navigateByUrl('/products/' + this.searchTerm);
   }
 }

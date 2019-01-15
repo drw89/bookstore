@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { sampleProducts } from './sampleData';
 
 @Component({
@@ -8,11 +9,16 @@ import { sampleProducts } from './sampleData';
 })
 export class ProductOverviewComponent implements OnInit {
   products;
-  constructor() { 
+  searchTerm: string;
+  constructor(private route: ActivatedRoute) { 
     this.products = sampleProducts;
   }
 
   ngOnInit() {
+    this.route.paramMap.subscribe(paramMap => {
+      this.searchTerm = paramMap.get('searchTerm')
+      console.log(this.searchTerm)
+    });
   }
 
 }

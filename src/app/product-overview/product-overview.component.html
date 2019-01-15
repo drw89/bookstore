@@ -1,4 +1,8 @@
-<h1 class="mat-h1">Product Overview</h1>
-<div class="teaser-wrapper">
-  <app-product-teaser *ngFor="let product of products" [book]="product"></app-product-teaser>
-</div>
+
+<div class="products-container">
+  <h1 class="mat-h1">Product Overview</h1>
+  <span>You searched for: {{searchTerm}}</span>
+  <div class="teaser-wrapper">
+    <app-product-teaser *ngFor="let product of products" [book]="product"></app-product-teaser>
+  </div>
+</div><

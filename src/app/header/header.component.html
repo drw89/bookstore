@@ -15,11 +15,11 @@
     </a>
   </mat-toolbar-row>
   <mat-toolbar-row *ngIf="productSearchOpen">
-      <button mat-button>
+      <button mat-button (click)="startProductSearch()">
           <mat-icon class="example-icon">search</mat-icon>
       </button>
       <mat-form-field class="example-full-width">
-          <input matInput>
+          <input matInput [(ngModel)]="searchTermng">
       </mat-form-field>
       <button mat-button (click) ="toggleProductSearch()">
           <mat-icon class="example-icon">close</mat-icon>

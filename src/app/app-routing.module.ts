@@ -8,14 +8,16 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component'
  
 const routes: Routes = [
-  { path: 'products', component: ProductOverviewComponent },
+  { path: 'products/:searchTerm', component: ProductOverviewComponent },
   { path: 'product/:id', component: ProductDetailComponent },
   { path: 'login', component: LoginComponent },
   { path: 'cart', component: CartComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'registration', component: RegistrationComponent },
+  { path: 'orderConfirmation', component: OrderConfirmationComponent },
   { path: '', component: HomeComponent },
   { path: '**', component: PageNotFoundComponent }
 ];

@@ -37,7 +37,7 @@
   </div>
   <p class="mat-body">{{product.description}}</p>
   <div class="back-button">
-      <button mat-button>
+      <button mat-button (click)="navigateBack()">
           <mat-icon class="example-icon">keyboard_backspace</mat-icon>
           <span>Back</span>
       </button>
