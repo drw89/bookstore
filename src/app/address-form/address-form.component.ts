@@ -8,6 +8,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 })
 export class AddressFormComponent implements OnInit {
   formGroup: FormGroup;
+  formValid: boolean;
   constructor(private formBuilder: FormBuilder) { 
     this.formGroup = new FormGroup({
       firstName: new FormControl(),
@@ -18,9 +19,14 @@ export class AddressFormComponent implements OnInit {
       country: new FormControl(),
       stateProvince: new FormControl()
     });
+    this.formValid = false;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.formGroup.valueChanges.subscribe(val => {
+      this.formValid = this.formGroup.valid;
+    });
+  }
 
   onSubmit() {
     console.log('submitted: ', this.formGroup.value);

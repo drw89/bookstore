@@ -21,7 +21,7 @@
       <input matInput placeholder="State Province" name="stateProvince" formControlName="stateProvince" required>
     </mat-form-field>
   <div class="button-wrapper">
-    <button type="submit" mat-stroked-button matStepperNext color="primary">Next</button>
+    <button type="submit" [disabled]="!formValid" mat-stroked-button matStepperNext color="primary">Next</button>
   </div>
 </form>
 
