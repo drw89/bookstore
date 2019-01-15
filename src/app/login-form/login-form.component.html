@@ -1,12 +1,12 @@
-<form [formGroup]="formGroup">
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
     <mat-form-field class="input-full-width">
-        <input matInput placeholder="Username" name="username" required>
+        <input matInput placeholder="Username" name="username" formControlName="username" required>
       </mat-form-field>
       <mat-form-field class="input-full-width">
-        <input matInput placeholder="Password" type="password" name="password" required>
+        <input matInput placeholder="Password" type="password" name="password" formControlName="password" required>
       </mat-form-field>
     <div class="button-wrapper">
       <button mat-stroked-button matStepperPrevious color="accent">Back</button>
-      <button mat-raised-button color="primary">Create Account</button>
+      <button type="submit" mat-raised-button color="primary">Create Account</button>
     </div>
 </form>
