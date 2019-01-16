@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { sampleCart } from '../cart/sampleCart';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-checkout',
@@ -10,25 +9,27 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CheckoutComponent implements OnInit {
   isLinear: boolean = false;
   sectionTitles: string [];
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  thirdFormGroup: FormGroup;
   cart: any; //todo: use generate type defintions from api
+  allFormValues = {};
+  allFormValidation = [];
+  checkoutValid = false;
 
-  constructor(private _formBuilder: FormBuilder) {
+  constructor() {
     this.cart = sampleCart;
     this.sectionTitles = ['Shipping Information', 'Billing Information', 'Order Summary'];
+    this.allFormValidation = [false, false];
   }
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
-    this.thirdFormGroup = this._formBuilder.group({
-      thirdCtrl: ['', Validators.required]
-    });
+  }
+
+  handleFormData(values: any) {
+    // merge all form values from all forms
+    this.allFormValues = Object.assign(this.allFormValues, values);
+  }
+
+  handleFormValidation(formValidation: any) {
+    this.allFormValidation[formValidation.id] = formValidation.valid;
+    this.checkoutValid = this.allFormValidation.every(val => val === true);
   }
 }

@@ -1,4 +1,4 @@
-<form [formGroup]="formGroup">
+<form [formGroup]="formGroup" (ngSubmit)="handlePlaceOrder()">
     <table mat-table [dataSource]="cart.items" class="mat-elevation-z8 cart-table">
         <!-- Item Column -->
         <ng-container matColumnDef="item">
@@ -33,6 +33,6 @@
       </table>
     <div class="button-wrapper">
       <button mat-stroked-button matStepperPrevious color="accent">Back</button>
-      <button (click)="handlePlaceOrder()" mat-raised-button color="primary">Place Order</button>
+      <button type="submit" (click)="handlePlaceOrder()" [disabled]="!checkoutValid" mat-raised-button color="primary">Place Order</button>
     </div>
 </form>

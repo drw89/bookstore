@@ -3,17 +3,17 @@
     <mat-card-title>Checkout</mat-card-title>
     </mat-card-header>
     <mat-horizontal-stepper [linear]="isLinear" #stepper>
-      <mat-step [stepControl]="firstFormGroup">
+      <mat-step>
         <ng-template matStepLabel>{{sectionTitles[0]}}</ng-template>
-        <app-address-form [formGroup]="firstFormGroup"></app-address-form>
+        <app-address-form (handleFormData)="handleFormData($event)" (handleFormValidation)="handleFormValidation($event)"></app-address-form>
       </mat-step>
-      <mat-step [stepControl]="secondFormGroup">
+      <mat-step>
         <ng-template matStepLabel>{{sectionTitles[1]}}</ng-template>
-        <app-payment-form [formGroup]="secondFormGroup"></app-payment-form>
+        <app-payment-form (handleFormData)="handleFormData($event)" (handleFormValidation)="handleFormValidation($event)"></app-payment-form>
       </mat-step>
-      <mat-step [stepControl]="thirdFormGroup">
+      <mat-step>
         <ng-template matStepLabel>{{sectionTitles[2]}}</ng-template>
-        <app-order-summary [formGroup]="thirdFormGroup" [cart]="cart"></app-order-summary>
+        <app-order-summary [checkoutValid]="checkoutValid" [cart]="cart"></app-order-summary>
       </mat-step>
     </mat-horizontal-stepper>
   </mat-card>

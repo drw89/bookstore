@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-order-summary',
@@ -9,10 +9,12 @@ import { Router } from '@angular/router';
 })
 export class OrderSummaryComponent implements OnInit {
   displayedColumns: string[];
-  @Input() formGroup: FormGroup;
+  formGroup: FormGroup;
   @Input() cart: any;
-  constructor(private router: Router) { 
+  @Input() checkoutValid: boolean;
+  constructor(private formBuilder: FormBuilder, private router: Router) { 
     this.displayedColumns = ['item','quantity','cost'];
+    this.formGroup = new FormGroup({});
   }
 
   ngOnInit() {}
