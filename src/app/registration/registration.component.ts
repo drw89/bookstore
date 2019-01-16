@@ -1,5 +1,4 @@
-import {Component, OnInit, ViewChildren } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-registration',
@@ -9,11 +8,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegistrationComponent implements OnInit {
   isLinear: boolean = false;
   sectionTitles: string [];
-  thirdFormGroup: FormGroup;
   allFormValues = {};
   allFormValidation = [];
   registrationValid = false;
-  constructor(private _formBuilder: FormBuilder) {
+  constructor() {
     this.sectionTitles = ['Personal Data', 'Payment Data', 'Login Data'];
     this.allFormValidation = [false, false, false];
   }
