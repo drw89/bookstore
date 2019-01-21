@@ -1,4 +1,6 @@
-import {Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { APIService } from '../../services/api.service';
 
 @Component({
   selector: 'app-registration',
@@ -11,7 +13,7 @@ export class RegistrationComponent implements OnInit {
   allFormValues = {};
   allFormValidation = [];
   registrationValid = false;
-  constructor() {
+  constructor(private apiService: APIService, private router: Router, ) {
     this.sectionTitles = ['Personal Data', 'Payment Data', 'Login Data'];
     this.allFormValidation = [false, false, false];
   }
@@ -27,6 +29,12 @@ export class RegistrationComponent implements OnInit {
   handleFormValidation(formValidation: any) {
     this.allFormValidation[formValidation.id] = formValidation.valid;
     this.registrationValid = this.allFormValidation.every(val => val === true);
+  }
+
+  createCustomer() {
+    this.apiService.registerCustomer(this.allFormValues).subscribe(() => {
+      this.router.navigateByUrl('/cart');
+    });
   }
 }
 

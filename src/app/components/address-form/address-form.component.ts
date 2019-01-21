@@ -20,7 +20,8 @@ export class AddressFormComponent implements OnInit {
       street: new FormControl(),
       city: new FormControl(),
       country: new FormControl(),
-      stateProvince: new FormControl()
+      stateProvince: new FormControl(),
+      postalCode: new FormControl()
     });
     this.formValid = false;
   }

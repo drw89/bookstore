@@ -13,7 +13,12 @@
     </mat-step>
     <mat-step>
         <ng-template matStepLabel>{{sectionTitles[2]}}</ng-template>
-        <app-login-form [registrationValid]="registrationValid" (handleFormData)="handleFormData($event)" (handleFormValidation)="handleFormValidation($event)"></app-login-form>
+        <app-login-form 
+            [registrationValid]="registrationValid"
+            (handleFormData)="handleFormData($event)"
+            (handleFormValidation)="handleFormValidation($event)"
+            (createCustomer)="createCustomer()"
+        ></app-login-form>
     </mat-step>
   </mat-horizontal-stepper>
 </mat-card>

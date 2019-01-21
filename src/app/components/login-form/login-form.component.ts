@@ -12,6 +12,7 @@ export class LoginFormComponent implements OnInit {
   @Input() registrationValid: boolean;
   @Output() handleFormData = new EventEmitter();
   @Output() handleFormValidation = new EventEmitter();
+  @Output() createCustomer = new EventEmitter();
   constructor(private formBuilder: FormBuilder) { 
     this.formGroup = new FormGroup({
       username: new FormControl(),
@@ -27,6 +28,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('submitted: ', this.formGroup.value);
+     console.log('onSubmit', this.createCustomer);
+    this.createCustomer.emit();
   }
 }
