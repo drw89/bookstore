@@ -9,7 +9,8 @@ import {
   MatCardModule,
   MatRadioModule,
   MatStepperModule,
-  MatTableModule
+  MatTableModule,
+  MatProgressSpinnerModule
 } from '@angular/material';
 
 
@@ -25,7 +26,8 @@ import {
     MatCardModule,
     MatRadioModule,
     MatStepperModule,
-    MatTableModule
+    MatTableModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     CommonModule,
@@ -37,7 +39,8 @@ import {
     MatCardModule,
     MatRadioModule,
     MatStepperModule,
-    MatTableModule
+    MatTableModule,
+    MatProgressSpinnerModule
   ]
 })
 export class AngularMaterialModule { }

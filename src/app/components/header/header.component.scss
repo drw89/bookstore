@@ -1,4 +1,5 @@
 .example-icon {
+    display: flex;
     padding: 0 14px;
 }
   
@@ -13,4 +14,10 @@
 a {
     color: white;
     text-decoration: none; /* no underline */
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    width: 100%;
 }
