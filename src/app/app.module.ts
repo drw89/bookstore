@@ -7,21 +7,21 @@ import { MatButtonModule, MatCheckboxModule, MatIconModule, MatToolbarModule, Ma
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { ProductTeaserComponent } from './product-teaser/product-teaser.component';
-import { ProductOverviewComponent } from './product-overview/product-overview.component';
-import { LoginComponent } from './login/login.component';
-import { RegistrationComponent } from './registration/registration.component';
-import { CartComponent } from './cart/cart.component';
-import { CheckoutComponent } from './checkout/checkout.component';
-import { AddressFormComponent } from './address-form/address-form.component';
-import { PaymentFormComponent } from './payment-form/payment-form.component';
-import { OrderSummaryComponent } from './order-summary/order-summary.component';
-import { LoginFormComponent } from './login-form/login-form.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { HomeComponent } from './home/home.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
+import { HeaderComponent } from './components/header/header.component';
+import { ProductTeaserComponent } from './components/product-teaser/product-teaser.component';
+import { ProductOverviewComponent } from './components/product-overview/product-overview.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { CartComponent } from './components/cart/cart.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { AddressFormComponent } from './components/address-form/address-form.component';
+import { PaymentFormComponent } from './components/payment-form/payment-form.component';
+import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { HomeComponent } from './components/home/home.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
 
 @NgModule({
   declarations: [

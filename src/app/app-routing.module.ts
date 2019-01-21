@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ProductOverviewComponent } from './product-overview/product-overview.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { LoginComponent } from './login/login.component';
-import { CartComponent } from './cart/cart.component';
-import { CheckoutComponent } from './checkout/checkout.component';
-import { RegistrationComponent } from './registration/registration.component';
-import { HomeComponent } from './home/home.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component'
+import { ProductOverviewComponent } from './components/product-overview/product-overview.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { LoginComponent } from './components/login/login.component';
+import { CartComponent } from './components/cart/cart.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { HomeComponent } from './components//home/home.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component'
  
 const routes: Routes = [
   { path: 'products/:searchTerm', component: ProductOverviewComponent },
