@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule, MatIconModule, MatToolbarModule, MatInputModule, MatCardModule, MatRadioModule, MatStepperModule, MatTableModule } from '@angular/material';
+
+import { AngularMaterialModule } from './app.module.angular-material'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +23,7 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -48,15 +50,7 @@ import { OrderConfirmationComponent } from './components/order-confirmation/orde
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatCheckboxModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatInputModule,
-    MatCardModule,
-    MatRadioModule,
-    MatStepperModule,
-    MatTableModule
+    AngularMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
