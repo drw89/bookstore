@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { switchMap } from 'rxjs/operators';
-import { BookService} from '../../services/book.service';
+import { APIService } from '../../services/api.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -12,14 +12,14 @@ import { BookService} from '../../services/book.service';
 export class ProductDetailComponent implements OnInit {
   isLoading = false
   product: any = {};
-  constructor(private route: ActivatedRoute, private location: Location, private bookService: BookService) {
+  constructor(private route: ActivatedRoute, private location: Location, private apiService: APIService) {
   }
 
   ngOnInit() {
     this.route.paramMap.pipe(
       switchMap(paramMap => {
         this.isLoading = true;
-        return this.bookService.getBook(paramMap.get('id'))
+        return this.apiService.getBook(paramMap.get('id'))
       })
     )
     .subscribe((book: any) => {

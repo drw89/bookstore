@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 
-import { BookService} from '../../services/book.service';
+import { APIService} from '../../services/api.service';
 
 @Component({
   selector: 'app-product-overview',
@@ -13,14 +13,14 @@ export class ProductOverviewComponent implements OnInit {
   products = [];
   searchTerm: string;
   isLoading = false;
-  constructor(private route: ActivatedRoute, private bookService: BookService) { }
+  constructor(private route: ActivatedRoute, private apiService: APIService) { }
 
   ngOnInit() {
     this.route.paramMap.pipe(
       switchMap(paramMap => {
         this.isLoading = true;
         this.searchTerm = paramMap.get('searchTerm');
-        return this.bookService.searchForBooks(this.searchTerm)
+        return this.apiService.searchForBooks(this.searchTerm)
       })
     )
     .subscribe((books: any) => {

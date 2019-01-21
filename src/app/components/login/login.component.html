@@ -12,7 +12,7 @@
             <input matInput placeholder="Password" type="password" name="password" formControlName="password" required>
           </mat-form-field>
           <mat-card-actions class="button-container">
-              <button mat-raised-button color="primary" type="submit">Login</button>
+              <button [disabled]="!validLogin" mat-raised-button color="primary" type="submit">Login</button>
               <button mat-raised-button color="secondary" (click)="navigateToRegistrationPage()">Registration</button>
           </mat-card-actions>
         </form>

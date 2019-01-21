@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { APIService } from '../../services/api.service';
 
 
 @Component({
@@ -10,7 +11,8 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  constructor(private router: Router, private formBuilder: FormBuilder) { 
+  validLogin = false
+  constructor(private router: Router, private formBuilder: FormBuilder, private apiService: APIService) { 
     this.loginForm = new FormGroup({
       username: new FormControl(),
       password: new FormControl()
@@ -18,10 +20,15 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loginForm.valueChanges.subscribe(() => {
+      this.validLogin = this.loginForm.valid;
+    })
   }
 
   onSubmit() {
-    console.log('submitted: ', this.loginForm.value);
+    console.log(this.loginForm.value);
+    this.apiService.authenticateCustomer('fdsfd','dsfdsf')
+      .subscribe(() => this.router.navigateByUrl('/cart'));
   }
 
   navigateToRegistrationPage() {
