@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { sampleProduct } from './sampleProduct';
-import {Location} from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { switchMap } from 'rxjs/operators';
+import { BookService} from '../../services/book.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -8,12 +10,27 @@ import {Location} from '@angular/common';
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent implements OnInit {
-  product: any;
-  constructor(private location: Location) {
-    this.product = sampleProduct;
+  isLoading = false
+  product: any = {};
+  constructor(private route: ActivatedRoute, private location: Location, private bookService: BookService) {
   }
 
   ngOnInit() {
+    this.route.paramMap.pipe(
+      switchMap(paramMap => {
+        this.isLoading = true;
+        return this.bookService.getBook(paramMap.get('id'))
+      })
+    )
+    .subscribe((book: any) => {
+      this.isLoading = false;
+      this.product = book;
+    });
+  }
+
+  addToCart() {
+    console.log("book with id: " + this.product.id + " will be added to the cart");
+    console.log('add to cart mock is missing...');
   }
 
   navigateBack() {

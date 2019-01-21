@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { bloomHasToken } from '@angular/core/src/render3/di';
 
 @Component({
@@ -9,9 +9,13 @@ import { bloomHasToken } from '@angular/core/src/render3/di';
 export class ProductTeaserComponent implements OnInit {
 
   @Input() book;
+  @Output() addToCart = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
   }
 
+  addBookToCart() {
+    this.addToCart.emit(this.book.id);
+  }
 }

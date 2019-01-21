@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { map, filter, catchError, switchMap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 
 import { BookService} from '../../services/book.service';
 
@@ -27,5 +27,10 @@ export class ProductOverviewComponent implements OnInit {
       this.isLoading = false;
       this.products = books
     });
+  }
+
+  addToCart(id: string) {
+    console.log("book with id: " + id + " will be added to the cart");
+    console.log('add to cart mock is missing...');
   }
 }

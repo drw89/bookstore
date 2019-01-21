@@ -13,13 +13,13 @@ export class BookService {
 
   constructor(private http: HttpClient) { }
 
-  /*
-  getBook(bookID: string): Observable<Book> {
+  
+  getBook(bookID: string): Observable<Object>  {
     return this.http.get(`${backendUrl}findBook?id=${bookID}`)
       .pipe(
         catchError(this.handleError)
       );
-  }*/
+  }
 
   searchForBooks(searchTerm: string): Observable<Object> {
     return this.http.get(`${backendUrl}searchBooks?keywords=${searchTerm}`)
