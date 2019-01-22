@@ -1,38 +1,82 @@
-<form [formGroup]="formGroup" (ngSubmit)="handlePlaceOrder()">
-    <table mat-table [dataSource]="cart.items" class="mat-elevation-z8 cart-table">
-        <!-- Item Column -->
-        <ng-container matColumnDef="item">
-          <th mat-header-cell *matHeaderCellDef> Item </th>
-          <td mat-cell *matCellDef="let item">
-            <div class="product-description">
-                <h3 class="product-title">{{item.book.title}}</h3>
-                <span class="mat-body">ISBN: {{item.book.isbn}}</span>
-                <span>{{item.book.authors}}</span>
-            </div>
-          </td>
-          <td mat-footer-cell *matFooterCellDef> Total </td>
-        </ng-container>
-    
-        <!-- Quantity Column -->
-        <ng-container matColumnDef="quantity">
-          <th mat-header-cell *matHeaderCellDef> Quantity </th>
-          <td mat-cell *matCellDef="let item"> {{item.quantity}}</td>
-          <td mat-footer-cell *matFooterCellDef></td>
-        </ng-container>
-      
-        <!-- Cost Column -->
-        <ng-container matColumnDef="cost">
-          <th mat-header-cell *matHeaderCellDef> Cost </th>
-          <td mat-cell *matCellDef="let item"> {{item.price}} CHF</td>
-          <td mat-footer-cell *matFooterCellDef> {{cart.amount}} CHF</td>
-        </ng-container>
-      
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
-      </table>
-    <div class="button-wrapper">
-      <button mat-stroked-button matStepperPrevious color="accent">Back</button>
-      <button type="submit" (click)="handlePlaceOrder()" [disabled]="!checkoutValid" mat-raised-button color="primary">Place Order</button>
-    </div>
-</form>
+<div class="summary">
+  <div>
+    <h2>Shipping Address</h2>
+    <table>
+      <tr>
+        <td>Firstname</td>
+        <td>Dominik</td>
+      </tr>
+      <tr>
+        <td>Lastname</td>
+        <td>Rieder</td>
+      </tr>
+      <tr>
+        <td>City</td>
+        <td>Wiler</td>
+      </tr>
+      <tr>
+        <td>Postcalcode</td>
+        <td>3918</td>
+      </tr>
+      <tr>
+        <td>Street</td>
+        <td>Dorfstrasse</td>
+      </tr>
+      <tr>
+        <td>State Province</td>
+        <td>Wallis</td>
+      </tr>
+      <tr>
+        <td>Country</td>
+        <td>Schweiz</td>
+      </tr>
+    </table>
+  </div>
+  <div>
+      <h2>Billing</h2>
+      <p>Creditcard: 00000002****</p>
+      <p>Creditcard type: Mastercard</p>
+  </div>
+  <div>
+    <h2>Order Overview</h2>
+    <form [formGroup]="formGroup" (ngSubmit)="handlePlaceOrder()">
+        <table mat-table [dataSource]="cart.items" class="mat-elevation-z8 cart-table">
+            <!-- Item Column -->
+            <ng-container matColumnDef="item">
+              <th mat-header-cell *matHeaderCellDef> Item </th>
+              <td mat-cell *matCellDef="let item">
+                <div class="product-description">
+                    <h3 class="product-title">{{item.book.title}}</h3>
+                    <span class="mat-body">ISBN: {{item.book.isbn}}</span>
+                    <span>{{item.book.authors}}</span>
+                </div>
+              </td>
+              <td mat-footer-cell *matFooterCellDef> Total </td>
+            </ng-container>
+        
+            <!-- Quantity Column -->
+            <ng-container matColumnDef="quantity">
+              <th mat-header-cell *matHeaderCellDef> Quantity </th>
+              <td mat-cell *matCellDef="let item"> {{item.quantity}}</td>
+              <td mat-footer-cell *matFooterCellDef></td>
+            </ng-container>
+          
+            <!-- Cost Column -->
+            <ng-container matColumnDef="cost">
+              <th mat-header-cell *matHeaderCellDef> Cost </th>
+              <td mat-cell *matCellDef="let item"> {{item.price}} CHF</td>
+              <td mat-footer-cell *matFooterCellDef> {{cart.amount}} CHF</td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+          </table>
+    </form>
+  </div>
+</div>
+<div class="button-wrapper">
+  <button mat-stroked-button matStepperPrevious color="accent">Back</button>
+  <button (click)="handlePlaceOrder()" [disabled]="!checkoutValid" mat-raised-button color="primary">Place Order</button>
+</div>
+
