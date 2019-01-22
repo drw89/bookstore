@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -13,7 +12,8 @@ export class OrderSummaryComponent implements OnInit {
   @Input() cart: any;
   @Input() formValues: any;
   @Input() checkoutValid: boolean;
-  constructor(private formBuilder: FormBuilder, private router: Router) { 
+  @Output() placeOrder = new EventEmitter();
+  constructor(private formBuilder: FormBuilder) { 
     this.displayedColumns = ['item','quantity','cost'];
     this.formGroup = new FormGroup({});
   }
@@ -21,7 +21,6 @@ export class OrderSummaryComponent implements OnInit {
   ngOnInit() {}
 
   handlePlaceOrder() {
-    this.router.navigateByUrl('/orderConfirmation');
-
+    this.placeOrder.emit();
   }
 }

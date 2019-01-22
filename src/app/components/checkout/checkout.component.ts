@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { flatMap } from 'rxjs/operators';
+import { Router } from '@angular/router';
+
 import { sampleCart } from '../cart/sampleCart';
+import { APIService } from '../../services/api.service';
 
 @Component({
   selector: 'app-checkout',
@@ -14,7 +18,7 @@ export class CheckoutComponent implements OnInit {
   allFormValidation = [];
   checkoutValid = false;
 
-  constructor() {
+  constructor(private apiService: APIService, private router: Router) {
     this.cart = sampleCart;
     this.sectionTitles = ['Shipping Information', 'Billing Information', 'Order Summary'];
     this.allFormValidation = [false, false];
@@ -31,5 +35,15 @@ export class CheckoutComponent implements OnInit {
   handleFormValidation(formValidation: any) {
     this.allFormValidation[formValidation.id] = formValidation.valid;
     this.checkoutValid = this.allFormValidation.every(val => val === true);
+  }
+
+  placeOrder() {
+    this.apiService.updateCustomer(this.allFormValues)
+      .pipe(
+        flatMap(() => this.apiService.placeOrder(this.cart))
+      ).
+      subscribe(
+        () => this.router.navigateByUrl('/orderConfirmation')
+      );
   }
 }

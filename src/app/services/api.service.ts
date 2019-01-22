@@ -11,6 +11,47 @@ const httpOptions = {
   })
 };
 
+const mapCustomerFields = (formData: any) => {
+  const {
+    city,
+    country,
+    creditCardNumber,
+    creditCardType,
+    email,
+    expirationMonth,
+    expirationYear,
+    firstName,
+    lastName,
+    password,
+    stateProvince,
+    street,
+    postalCode,
+  } = formData;
+
+  return {
+    "customer": {
+      "address": {
+        city,
+        country,
+        postalCode,
+        stateProvince,
+        street
+      },
+      "creditCard": {
+        expirationMonth,
+        expirationYear,
+        "number": creditCardNumber,
+        "type": creditCardType
+      },
+      email,
+      firstName,
+      lastName,
+      "id": 0,
+    },
+    password
+  }
+};
+
 const backendUrl = 'http://distsys.ch:10080/api/';
 
 @Injectable({
@@ -44,46 +85,21 @@ export class APIService {
       );
   }
 
-  registerCustomer(formData: any) : Observable<Object> {
-    const {
-      city,
-      country,
-      creditCardNumber,
-      creditCardType,
-      email,
-      expirationMonth,
-      expirationYear,
-      firstName,
-      lastName,
-      password,
-      stateProvince,
-      street,
-      postalCode,
-    } = formData;
+  placeOrder(cart: any) : Observable<Object> {
+    return this.http.post(`${backendUrl}placeOrder`, cart)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
 
-    const customer = {
-      "customer": {
-        "address": {
-          city,
-          country,
-          postalCode,
-          stateProvince,
-          street
-        },
-        "creditCard": {
-          expirationMonth,
-          expirationYear,
-          "number": creditCardNumber,
-          "type": creditCardType
-        },
-        email,
-        firstName,
-        lastName,
-        "id": 0,
-      },
-      password
-    }
-    return this.http.post(`${backendUrl}registerCustomer`, customer, httpOptions).pipe(
+  registerCustomer(formData: any) : Observable<Object> {
+    return this.http.post(`${backendUrl}registerCustomer`, mapCustomerFields(formData), httpOptions).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  updateCustomer(formData: any) : Observable<Object> {
+    return this.http.post(`${backendUrl}updateCustomer`, mapCustomerFields(formData), httpOptions).pipe(
       catchError(this.handleError)
     );
   }

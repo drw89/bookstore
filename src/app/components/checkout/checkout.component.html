@@ -13,7 +13,12 @@
       </mat-step>
       <mat-step>
         <ng-template matStepLabel>{{sectionTitles[2]}}</ng-template>
-        <app-order-summary [formValues]="allFormValues" [checkoutValid]="checkoutValid" [cart]="cart"></app-order-summary>
+        <app-order-summary 
+          [formValues]="allFormValues"
+          [checkoutValid]="checkoutValid"
+          [cart]="cart"
+          (placeOrder)="placeOrder()"
+        ></app-order-summary>
       </mat-step>
     </mat-horizontal-stepper>
   </mat-card>
