@@ -52,6 +52,45 @@ const mapCustomerFields = (formData: any) => {
   }
 };
 
+const mapCustomerFieldsV2 = (formData: any) => {
+  const {
+    city,
+    country,
+    creditCardNumber,
+    creditCardType,
+    email,
+    expirationMonth,
+    expirationYear,
+    firstName,
+    lastName,
+    password,
+    stateProvince,
+    street,
+    postalCode,
+  } = formData;
+
+  return {
+    "address": {
+      city,
+      country,
+      postalCode,
+      stateProvince,
+      street
+    },
+    "creditCard": {
+      expirationMonth,
+      expirationYear,
+      "number": creditCardNumber,
+      "type": creditCardType
+    },
+    email,
+    firstName,
+    lastName,
+    "id": 0,
+    password
+  }
+};
+
 const backendUrl = 'http://distsys.ch:10080/api/';
 
 @Injectable({
@@ -86,7 +125,7 @@ export class APIService {
   }
 
   placeOrder(cart: any) : Observable<Object> {
-    return this.http.post(`${backendUrl}placeOrder`, cart)
+    return this.http.post(`${backendUrl}placeOrder`, { customerId: 0, ...cart})
       .pipe(
         catchError(this.handleError)
       );
@@ -99,7 +138,7 @@ export class APIService {
   }
 
   updateCustomer(formData: any) : Observable<Object> {
-    return this.http.post(`${backendUrl}updateCustomer`, mapCustomerFields(formData), httpOptions).pipe(
+    return this.http.put(`${backendUrl}updateCustomer`, mapCustomerFieldsV2(formData), httpOptions).pipe(
       catchError(this.handleError)
     );
   }

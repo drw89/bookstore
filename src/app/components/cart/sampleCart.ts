@@ -31,6 +31,7 @@ export const sampleCart = {
           "authors": "Michael Simons",
           "price": 36
         },
+        "isbn": "3960883897",
         "quantity": 2,
         "price": 34.2
       },
@@ -42,6 +43,7 @@ export const sampleCart = {
           "authors": "Felipe Gutierrez",
           "price": 45
         },
+        "isbn": "3960883897",
         "quantity": 1,
         "price": 40.5
       }
