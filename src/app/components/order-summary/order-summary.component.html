@@ -4,38 +4,38 @@
     <table>
       <tr>
         <td>Firstname</td>
-        <td>Dominik</td>
+        <td>{{formValues.firstName}}</td>
       </tr>
       <tr>
         <td>Lastname</td>
-        <td>Rieder</td>
+        <td>{{formValues.lastName}}</td>
       </tr>
       <tr>
         <td>City</td>
-        <td>Wiler</td>
+        <td>{{formValues.city}}</td>
       </tr>
       <tr>
         <td>Postcalcode</td>
-        <td>3918</td>
+        <td>{{formValues.postalCoe}}</td>
       </tr>
       <tr>
         <td>Street</td>
-        <td>Dorfstrasse</td>
+        <td>{{formValues.street}}</td>
       </tr>
       <tr>
         <td>State Province</td>
-        <td>Wallis</td>
+        <td>{{formValues.stateProvince}}</td>
       </tr>
       <tr>
         <td>Country</td>
-        <td>Schweiz</td>
+        <td>{{formValues.country}}</td>
       </tr>
     </table>
   </div>
   <div>
       <h2>Billing</h2>
-      <p>Creditcard: 00000002****</p>
-      <p>Creditcard type: Mastercard</p>
+      <p>Creditcard: {{formValues.creditCardNumber|slice:0:8}}****</p>
+      <p>Creditcard type: {{formValues.creditCardType}}</p>
   </div>
   <div>
     <h2>Order Overview</h2>

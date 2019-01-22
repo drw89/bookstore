@@ -5,13 +5,13 @@
         <mat-radio-button value="VISA">Visa</mat-radio-button>
     </mat-radio-group>
     <mat-form-field class="input-full-width">
-      <input matInput placeholder="CreditCard Number" type="number" name="creditCardNumber" formControlName="creditCardNumber" required>
+      <input matInput placeholder="CreditCard Number" type="text" minlength="12"  maxlength="12" name="creditCardNumber" formControlName="creditCardNumber" required>
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="MM" type="number" name="expirationMonth" maxlength="2" formControlName="expirationMonth" required>
+      <input matInput placeholder="MM" name="expirationMonth" maxlength="2" formControlName="expirationMonth" required>
     </mat-form-field>
     <mat-form-field class="input-number">
-      <input matInput placeholder="YY" type="number" name="expirationYear" maxlength="2" formControlName="expirationYear" required>
+      <input matInput placeholder="YY" name="expirationYear" maxlength="2" formControlName="expirationYear" required>
     </mat-form-field>
     <div class="button-wrapper">
       <button mat-stroked-button matStepperPrevious color="accent">Back</button>
