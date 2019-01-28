@@ -11,7 +11,7 @@ import { APIService } from '../../services/api.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  validLogin = false
+  validLogin = false;
   constructor(private router: Router, private formBuilder: FormBuilder, private apiService: APIService) { 
     this.loginForm = new FormGroup({
       username: new FormControl(),

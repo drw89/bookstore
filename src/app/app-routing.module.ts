@@ -9,6 +9,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { HomeComponent } from './components//home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component'
+import {CatalogAdminComponent} from './components/catalog-admin/catalog-admin.component';
  
 const routes: Routes = [
   { path: 'products/:searchTerm', component: ProductOverviewComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'orderConfirmation', component: OrderConfirmationComponent },
+  {path: 'admin', component: CatalogAdminComponent},
   { path: '', component: HomeComponent },
   { path: '**', component: PageNotFoundComponent }
 ];

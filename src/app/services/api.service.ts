@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { map, catchError } from 'rxjs/operators';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 import { HttpHeaders } from '@angular/common/http';
+import {Book} from '../types';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -139,6 +140,12 @@ export class APIService {
 
   updateCustomer(formData: any) : Observable<Object> {
     return this.http.put(`${backendUrl}updateCustomer`, mapCustomerFieldsV2(formData), httpOptions).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  addBook(book: Book) : Observable<Object> {
+    return this.http.post(`${backendUrl}addBook`, book, httpOptions).pipe(
       catchError(this.handleError)
     );
   }

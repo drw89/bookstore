@@ -23,6 +23,7 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
+import { CatalogAdminComponent } from './components/catalog-admin/catalog-admin.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { OrderConfirmationComponent } from './components/order-confirmation/orde
     ProductDetailComponent,
     HomeComponent,
     PageNotFoundComponent,
-    OrderConfirmationComponent
+    OrderConfirmationComponent,
+    CatalogAdminComponent
   ],
   imports: [
     BrowserModule,
