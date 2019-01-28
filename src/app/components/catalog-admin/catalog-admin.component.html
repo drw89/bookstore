@@ -1,0 +1,44 @@
+<div class="admin-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Catalog Admin</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="admin-from" [formGroup]="adminForm" (ngSubmit)="obSubmit()">
+        <mat-form-field class="input-full-width">
+          <input matInput placeholder="Title" name="title" formControlName="title" required>
+        </mat-form-field>
+        <mat-form-field class="input-full-width">
+          <input matInput placeholder="Subtitle" name="subtitle" formControlName="subtitle" required>
+        </mat-form-field>
+        <mat-form-field class="input-full-width">
+          <input matInput placeholder="Isbn" name="isbn" formControlName="isbn" required>
+        </mat-form-field>
+        <mat-form-field class="input-full-width">
+          <input matInput placeholder="Authors" name="authors" formControlName="authors" required>
+        </mat-form-field>
+        <mat-form-field class="input-full-width">
+          <input matInput placeholder="Description" name="description" formControlName="description" required/>
+        </mat-form-field>
+        <mat-form-field class="input-full-width">
+          <input matInput placeholder="ImageUrl" name="imageUrl" formControlName="imageUrl" required>
+        </mat-form-field>
+        <mat-form-field class="input-full-width">
+          <input matInput type="number" placeholder="Number of pages" name="numberOfPages" formControlName="numberOfPages" required>
+        </mat-form-field>
+        <mat-form-field class="input-full-width">
+          <input matInput type="number" placeholder="price" name="price" formControlName="price" required>
+        </mat-form-field>
+        <mat-form-field class="input-full-width">
+          <input matInput type="number" placeholder="Publication year" name="publicationYear" formControlName="publicationYear" required>
+        </mat-form-field>
+        <mat-form-field class="input-full-width">
+          <input matInput placeholder="Publisher" name="publisher" formControlName="publisher" required>
+        </mat-form-field>
+        <mat-card-actions class="button-container">
+          <button mat-raised-button color="primary" [disabled]="adminForm.pristine" type="submit">add book</button>
+        </mat-card-actions>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
