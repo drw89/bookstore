@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { map, catchError } from 'rxjs/operators';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 import { HttpHeaders } from '@angular/common/http';
-import {Book} from '../types';
+import {Book, Login} from '../types';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -118,8 +118,8 @@ export class APIService {
       );
   }
 
-  authenticateCustomer(email: string, password: string) : Observable<Object> {
-    return this.http.get(`${backendUrl}authenticateCustomer?email=${email}&password=${password}`)
+  authenticateCustomer(login: Login) : Observable<Object> {
+    return this.http.get(`${backendUrl}authenticateCustomer?email=${login.email}&password=${login.password}`)
       .pipe(
         catchError(this.handleError)
       );

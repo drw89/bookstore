@@ -10,3 +10,8 @@ export class Book {
   publicationYear: number;
   publisher: string;
 }
+
+export class Login {
+  email: string;
+  password: string;
+}
