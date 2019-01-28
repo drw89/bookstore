@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {Login} from '../../types';
 
 @Component({
   selector: 'app-login-form',
@@ -13,22 +14,29 @@ export class LoginFormComponent implements OnInit {
   @Output() handleFormData = new EventEmitter();
   @Output() handleFormValidation = new EventEmitter();
   @Output() createCustomer = new EventEmitter();
-  constructor(private formBuilder: FormBuilder) { 
-    this.formGroup = new FormGroup({
-      username: new FormControl(),
-      password: new FormControl()
-    });
+
+  constructor(private formBuilder: FormBuilder) {
+    this.formGroup = this.createFormGroup();
   }
 
   ngOnInit() {
-    this.formGroup.valueChanges.subscribe(val => {
-      this.handleFormValidation.emit({ id : this.id, valid: this.formGroup.valid });
-      this.handleFormData.emit(val);
+    this.formGroup.valueChanges.subscribe(() => {
+      this.handleFormValidation.emit({id: this.id, valid: this.formGroup.valid});
     });
   }
 
   onSubmit() {
-     console.log('onSubmit', this.createCustomer);
+    const login: Login = Object.assign({}, this.formGroup.value);
+    console.log(login);
+    this.handleFormData.emit(login);
+    console.log('onSubmit', this.createCustomer);
     this.createCustomer.emit();
+  }
+
+  createFormGroup() {
+    return this.formBuilder.group({
+      email: new FormControl(),
+      password: new FormControl()
+    });
   }
 }

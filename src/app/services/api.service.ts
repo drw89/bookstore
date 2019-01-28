@@ -12,47 +12,6 @@ const httpOptions = {
   })
 };
 
-const mapCustomerFields = (formData: any) => {
-  const {
-    city,
-    country,
-    creditCardNumber,
-    creditCardType,
-    email,
-    expirationMonth,
-    expirationYear,
-    firstName,
-    lastName,
-    password,
-    stateProvince,
-    street,
-    postalCode,
-  } = formData;
-
-  return {
-    "customer": {
-      "address": {
-        city,
-        country,
-        postalCode,
-        stateProvince,
-        street
-      },
-      "creditCard": {
-        expirationMonth,
-        expirationYear,
-        "number": creditCardNumber,
-        "type": creditCardType
-      },
-      email,
-      firstName,
-      lastName,
-      "id": 0,
-    },
-    password
-  }
-};
-
 const mapCustomerFieldsV2 = (formData: any) => {
   const {
     city,
@@ -133,7 +92,7 @@ export class APIService {
   }
 
   registerCustomer(formData: any) : Observable<Object> {
-    return this.http.post(`${backendUrl}registerCustomer`, mapCustomerFields(formData), httpOptions).pipe(
+    return this.http.post(`${backendUrl}registerCustomer`, formData, httpOptions).pipe(
       catchError(this.handleError)
     );
   }
