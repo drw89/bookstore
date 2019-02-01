@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## implemented Features
 
-#functional requirements
+### functional requirements
 
 - Catalog Search
 - Registering/Login
@@ -12,7 +12,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - Order Check-Out
 - Catalog Admin
 
-#nonfunctional requirements
+### nonfunctional requirements
 
 - TypeSafe Backend-Access (generated types with swagger-codegen)
 - Component-Library (Angular Material)
