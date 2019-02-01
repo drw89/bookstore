@@ -28,7 +28,6 @@ export class AddressFormComponent implements OnInit {
 
   onSubmit() {
     const personalData: PersonalData = Object.assign({}, this.addressForm.value);
-    console.log(personalData);
     this.handleFormData.emit(personalData);
   }
 

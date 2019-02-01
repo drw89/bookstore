@@ -32,8 +32,8 @@ export class PaymentFormComponent implements OnInit {
 
   createFormGroup() {
     return this.formBuilder.group({
-      creditCardType: new FormControl(),
-      creditCardNumber: new FormControl(),
+      type: new FormControl(),
+      number: new FormControl(),
       expirationMonth: new FormControl(),
       expirationYear: new FormControl()
     });

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { map, catchError } from 'rxjs/operators';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 import { HttpHeaders } from '@angular/common/http';
-import {Book, Login} from '../types';
+import {Book, Login, Registration} from '../types';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -91,8 +91,8 @@ export class APIService {
       );
   }
 
-  registerCustomer(formData: any) : Observable<Object> {
-    return this.http.post(`${backendUrl}registerCustomer`, formData, httpOptions).pipe(
+  registerCustomer(registration: Registration) : Observable<Object> {
+    return this.http.post(`${backendUrl}registerCustomer`, registration, httpOptions).pipe(
       catchError(this.handleError)
     );
   }

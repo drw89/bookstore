@@ -23,11 +23,11 @@ export class PersonalData {
   city: string;
   country: string;
   stateProvince: string;
-  postalCode: number;
+  postalCode: string;
 }
 
 export class CreditCard {
-  creditCardType: CreditCardType;
+  type: CreditCardType;
   number: number;
   expirationMonth: number;
   expirationYear: number;
@@ -37,4 +37,25 @@ export class CreditCard {
 export enum CreditCardType {
   MASTERCARD,
   VISA
+}
+
+export class Registration {
+  customer: Customer;
+  password: string;
+}
+
+export class Customer {
+  address: Address;
+  creditCard: CreditCard;
+  email: string;
+  firstName: string;
+  lastName: string;
+}
+
+export class Address {
+  city: string;
+  country: string;
+  postalCode: string;
+  stateProvince: string;
+  street: string;
 }
