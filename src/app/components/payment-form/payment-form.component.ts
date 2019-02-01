@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import {CreditCard} from '../../types';
+import {CreditCard} from '../../swagger-models/model/creditCard';
 
 @Component({
   selector: 'app-payment-form',

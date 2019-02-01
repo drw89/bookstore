@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
-import {Book} from '../../types';
 import {APIService} from '../../services/api.service';
 import {Router} from '@angular/router';
+import {Book} from '../../swagger-models/model/book';
 
 @Component({
   selector: 'app-catalog-admin',
@@ -37,7 +37,8 @@ export class CatalogAdminComponent implements OnInit {
   obSubmit() {
     const book: Book = Object.assign({}, this.adminForm.value);
     console.log("clicked");
-    this.apiService.addBook(book).subscribe(() => {
+    this.apiService.addBook(book).subscribe(response => {
+      console.log(response.id);
       this.router.navigateByUrl('/products/undefined');
     });
   }

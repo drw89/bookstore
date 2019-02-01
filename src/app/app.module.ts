@@ -43,7 +43,7 @@ import { CatalogAdminComponent } from './components/catalog-admin/catalog-admin.
     HomeComponent,
     PageNotFoundComponent,
     OrderConfirmationComponent,
-    CatalogAdminComponent
+    CatalogAdminComponent,
   ],
   imports: [
     BrowserModule,
