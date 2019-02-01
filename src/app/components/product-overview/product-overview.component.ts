@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 
 import { APIService} from '../../services/api.service';
+import {PurchaseOrderItem} from '../../swagger-models/model/purchaseOrderItem';
+import {LocalstorageService} from '../../services/localstorage.service';
 
 @Component({
   selector: 'app-product-overview',
@@ -13,7 +15,7 @@ export class ProductOverviewComponent implements OnInit {
   products = [];
   searchTerm: string;
   isLoading = false;
-  constructor(private route: ActivatedRoute, private apiService: APIService) { }
+  constructor(private route: ActivatedRoute, private apiService: APIService, private localstorageService: LocalstorageService) { }
 
   ngOnInit() {
     this.route.paramMap.pipe(
@@ -29,8 +31,9 @@ export class ProductOverviewComponent implements OnInit {
     });
   }
 
-  addToCart(id: string) {
-    console.log("book with id: " + id + " will be added to the cart");
+  addToCart(book: any) {
+    this.localstorageService.pushToCart(book);
+    console.log("book with id: " + book.id + " will be added to the cart");
     console.log('add to cart mock is missing...');
   }
 }

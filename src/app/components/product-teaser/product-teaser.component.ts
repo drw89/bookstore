@@ -16,6 +16,6 @@ export class ProductTeaserComponent implements OnInit {
   }
 
   addBookToCart() {
-    this.addToCart.emit(this.book.id);
+    this.addToCart.emit(this.book);
   }
 }

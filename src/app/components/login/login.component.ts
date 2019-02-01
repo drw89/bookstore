@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {APIService} from '../../services/api.service';
 import {Login} from '../../types';
+import {LocalstorageService} from '../../services/localstorage.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   validLogin = false;
 
-  constructor(private router: Router, private formBuilder: FormBuilder, private apiService: APIService) {
+  constructor(private router: Router, private formBuilder: FormBuilder, private apiService: APIService, private localstorageService: LocalstorageService) {
     this.loginForm = this.createFormGroup();
   }
 
@@ -27,7 +28,10 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     const login: Login = Object.assign({}, this.loginForm.value);
     this.apiService.authenticateCustomer(login)
-      .subscribe(() => this.router.navigateByUrl('/cart'));
+      .subscribe(response => {
+        this.localstorageService.saveLoggedInCustomerId(response.id);
+        this.router.navigateByUrl('/cart')
+      });
   }
 
   navigateToRegistrationPage() {
