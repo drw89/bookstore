@@ -2,6 +2,23 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.1.
 
+## implemented Features
+
+#functional requirements
+
+- Catalog Search
+- Registering/Login
+- ShoppingCart
+- Order Check-Out
+- Catalog Admin
+
+#nonfunctional requirements
+
+- TypeSafe Backend-Access (generated types with swagger-codegen)
+- Component-Library (Angular Material)
+- Animations (Angular Material)
+- public deployment (`https://bookstorecas.herokuapp.com/`)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
