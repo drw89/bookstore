@@ -10,6 +10,7 @@ export class ProductTeaserComponent implements OnInit {
 
   @Input() book;
   @Output() addToCart = new EventEmitter();
+  @Input() admin = false;
   constructor() { }
 
   ngOnInit() {

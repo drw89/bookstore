@@ -24,6 +24,7 @@ import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
 import { CatalogAdminComponent } from './components/catalog-admin/catalog-admin.component';
+import { AdminOverviewComponent } from './components/admin-overview/admin-overview.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { CatalogAdminComponent } from './components/catalog-admin/catalog-admin.
     PageNotFoundComponent,
     OrderConfirmationComponent,
     CatalogAdminComponent,
+    AdminOverviewComponent,
   ],
   imports: [
     BrowserModule,

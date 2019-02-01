@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {APIService} from '../../services/api.service';
 import {Router} from '@angular/router';
@@ -11,6 +11,7 @@ import {Book} from '../../swagger-models/model/book';
 })
 export class CatalogAdminComponent implements OnInit {
   adminForm: FormGroup;
+  @Input() bookToEdit: Book = {};
 
   constructor(private formBuilder: FormBuilder, private apiService: APIService, private router: Router) {
     this.adminForm = this.createFormGroup(formBuilder);
