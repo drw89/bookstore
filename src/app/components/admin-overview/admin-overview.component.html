@@ -1,0 +1,12 @@
+<div class="products-container">
+  <h1 class="mat-h1">Product Overview</h1>
+  <mat-spinner class="spinner" *ngIf="isLoading"></mat-spinner>
+  <div *ngIf="!isLoading">
+    <span>You searched for: {{searchTerm}}</span>
+    <div class="teaser-wrapper">
+      <app-product-teaser (addToCart)="addToCart($event)" *ngFor="let product of products" [book]="product"
+                          [admin]="true"></app-product-teaser>
+    </div>
+  </div>
+  <app-catalog-admin></app-catalog-admin>
+</div>
