@@ -10,12 +10,13 @@ export class ProductTeaserComponent implements OnInit {
 
   @Input() book;
   @Output() addToCart = new EventEmitter();
+  @Input() admin = false;
   constructor() { }
 
   ngOnInit() {
   }
 
   addBookToCart() {
-    this.addToCart.emit(this.book.id);
+    this.addToCart.emit(this.book);
   }
 }

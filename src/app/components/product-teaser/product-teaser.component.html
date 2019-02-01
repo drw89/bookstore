@@ -5,7 +5,8 @@
   <span class="product-title">{{book.title}}</span>
   <span class="mat-body"> from: {{book.authors}}</span>
   <span>{{book.price}} CHF</span>
-  <button (click)="addBookToCart()" mat-raised-button color="primary">
+  <button *ngIf="admin" mat-raised-button color="warn">edit</button>
+  <button *ngIf="!admin" (click)="addBookToCart()" mat-raised-button color="primary">
     <mat-icon class="example-icon">shopping_cart</mat-icon>
     <span>Add to Cart</span>
   </button>

@@ -1,11 +1,11 @@
-<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+<form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
     <label>Credit Card Type:</label>
-    <mat-radio-group formControlName="creditCardType" class="radio-wrapper">
+    <mat-radio-group formControlName="type" class="radio-wrapper">
         <mat-radio-button value="MASTERCARD">Mastercard</mat-radio-button>
         <mat-radio-button value="VISA">Visa</mat-radio-button>
     </mat-radio-group>
     <mat-form-field class="input-full-width">
-      <input matInput placeholder="CreditCard Number" type="text" minlength="12"  maxlength="12" name="creditCardNumber" formControlName="creditCardNumber" required>
+      <input matInput placeholder="CreditCard Number" type="text" minlength="12"  maxlength="12" name="creditCardNumber" formControlName="number" required>
     </mat-form-field>
     <mat-form-field>
       <input matInput placeholder="MM" name="expirationMonth" maxlength="2" formControlName="expirationMonth" required>

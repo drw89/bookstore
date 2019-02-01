@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import {CreditCard} from '../../swagger-models/model/creditCard';
 
 @Component({
   selector: 'app-payment-form',
@@ -7,30 +8,34 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./payment-form.component.scss']
 })
 export class PaymentFormComponent implements OnInit {
-  formGroup: FormGroup;
+  paymentForm: FormGroup;
   formValid: boolean = false;
   id: number = 1;
   @Output() handleFormData = new EventEmitter();
   @Output() handleFormValidation = new EventEmitter();
   constructor(private formBuilder: FormBuilder) { 
-    this.formGroup = new FormGroup({
-      creditCardType: new FormControl(),
-      creditCardNumber: new FormControl(),
-      expirationMonth: new FormControl(),
-      expirationYear: new FormControl()
-    });
+    this.paymentForm = this.createFormGroup();
   }
 
   ngOnInit() {
-    this.formGroup.valueChanges.subscribe(val => {
-      this.formValid = this.formGroup.valid;
+    this.paymentForm.valueChanges.subscribe(() => {
+      this.formValid = this.paymentForm.valid;
       this.handleFormValidation.emit({ id : this.id, valid: this.formValid });
-      this.handleFormData.emit(val);
     });
   }
 
-
   onSubmit() {
-    console.log('submitted: ', this.formGroup.value);
+    const creditCard: CreditCard = Object.assign({}, this.paymentForm.value);
+    console.log('submitted: ', creditCard);
+    this.handleFormData.emit(creditCard);
+  }
+
+  createFormGroup() {
+    return this.formBuilder.group({
+      type: new FormControl(),
+      number: new FormControl(),
+      expirationMonth: new FormControl(),
+      expirationYear: new FormControl()
+    });
   }
 }

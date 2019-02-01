@@ -1,151 +1,89 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import { map, catchError } from 'rxjs/operators';
-import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
-import { HttpHeaders } from '@angular/common/http';
-import {Book} from '../types';
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-  })
-};
-
-const mapCustomerFields = (formData: any) => {
-  const {
-    city,
-    country,
-    creditCardNumber,
-    creditCardType,
-    email,
-    expirationMonth,
-    expirationYear,
-    firstName,
-    lastName,
-    password,
-    stateProvince,
-    street,
-    postalCode,
-  } = formData;
-
-  return {
-    "customer": {
-      "address": {
-        city,
-        country,
-        postalCode,
-        stateProvince,
-        street
-      },
-      "creditCard": {
-        expirationMonth,
-        expirationYear,
-        "number": creditCardNumber,
-        "type": creditCardType
-      },
-      email,
-      firstName,
-      lastName,
-      "id": 0,
-    },
-    password
-  }
-};
-
-const mapCustomerFieldsV2 = (formData: any) => {
-  const {
-    city,
-    country,
-    creditCardNumber,
-    creditCardType,
-    email,
-    expirationMonth,
-    expirationYear,
-    firstName,
-    lastName,
-    password,
-    stateProvince,
-    street,
-    postalCode,
-  } = formData;
-
-  return {
-    "address": {
-      city,
-      country,
-      postalCode,
-      stateProvince,
-      street
-    },
-    "creditCard": {
-      expirationMonth,
-      expirationYear,
-      "number": creditCardNumber,
-      "type": creditCardType
-    },
-    email,
-    firstName,
-    lastName,
-    "id": 0,
-    password
-  }
-};
-
-const backendUrl = 'http://distsys.ch:10080/api/';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
+import {map, catchError} from 'rxjs/operators';
+import {ErrorObservable} from 'rxjs/observable/ErrorObservable';
+import {HttpHeaders} from '@angular/common/http';
+import {BookId, CustomerId, Login} from '../types';
+import {Registration} from '../swagger-models/model/registration';
+import {Customer} from '../swagger-models/model/customer';
+import {Book} from '../swagger-models/model/book';
+import {PurchaseOrder} from '../swagger-models/model/purchaseOrder';
+import {SalesOrder} from '../swagger-models/model/salesOrder';
+import {Serializer} from '../serializer/Serializer';
+import {BookInfo} from '../swagger-models/model/bookInfo';
 
 @Injectable({
   providedIn: 'root'
 })
 export class APIService {
 
-  constructor(private http: HttpClient) { }
+  private serializer = new Serializer();
 
-  getBook(bookID: string): Observable<Object>  {
-    return this.http.get(`${backendUrl}findBook?id=${bookID}`)
+  private backendUrl = 'http://distsys.ch:10080/api/';
+
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    })
+  };
+
+  constructor(private http: HttpClient) {
+  }
+
+  getBook(bookID: string): Observable<Book> {
+    return this.http.get<Book>(`${this.backendUrl}findBook?id=${bookID}`)
       .pipe(
+        map(data => this.serializer.fromJsonToBook(data)),
         catchError(this.handleError)
       );
   }
 
-  searchForBooks(searchTerm: string): Observable<Object> {
-    return this.http.get(`${backendUrl}searchBooks?keywords=${searchTerm}`)
+  searchForBooks(searchTerm: string): Observable<BookInfo[]> {
+    return this.http.get<BookInfo[]>(`${this.backendUrl}searchBooks?keywords=${searchTerm}`)
       .pipe(
         map((val: []) => {
-          return val.map(jsonBook => jsonBook)
+          return val.map(jsonBook => this.serializer.fromJsonToBookInfo(jsonBook));
         }),
         catchError(this.handleError)
       );
   }
 
-  authenticateCustomer(email: string, password: string) : Observable<Object> {
-    return this.http.get(`${backendUrl}authenticateCustomer?email=${email}&password=${password}`)
+  authenticateCustomer(login: Login): Observable<CustomerId> {
+    return this.http.get<CustomerId>(`${this.backendUrl}authenticateCustomer?email=${login.email}&password=${login.password}`)
       .pipe(
+        map(value => this.serializer.fromJsonToCustomerId(value)),
         catchError(this.handleError)
       );
   }
 
-  placeOrder(cart: any) : Observable<Object> {
-    return this.http.post(`${backendUrl}placeOrder`, { customerId: 0, ...cart})
+  placeOrder(purchaseOrder: PurchaseOrder): Observable<SalesOrder> {
+    return this.http.post<SalesOrder>(`${this.backendUrl}placeOrder`, purchaseOrder)
       .pipe(
+        map(value => this.serializer.fromJsonToSalesOrder(value)),
         catchError(this.handleError)
       );
   }
 
-  registerCustomer(formData: any) : Observable<Object> {
-    return this.http.post(`${backendUrl}registerCustomer`, mapCustomerFields(formData), httpOptions).pipe(
+  registerCustomer(registration: Registration): Observable<CustomerId> {
+    return this.http.post<CustomerId>(`${this.backendUrl}registerCustomer`, registration, this.httpOptions).pipe(
+      map(value => this.serializer.fromJsonToCustomerId(value)),
       catchError(this.handleError)
     );
   }
 
-  updateCustomer(formData: any) : Observable<Object> {
-    return this.http.put(`${backendUrl}updateCustomer`, mapCustomerFieldsV2(formData), httpOptions).pipe(
+  updateCustomer(customer: Customer): Observable<Customer> {
+    return this.http.put(`${this.backendUrl}updateCustomer`, customer, this.httpOptions).pipe(
       catchError(this.handleError)
     );
   }
 
-  addBook(book: Book) : Observable<Object> {
-    return this.http.post(`${backendUrl}addBook`, book, httpOptions).pipe(
+  addBook(book: Book): Observable<BookId> {
+    return this.http.post<BookId>(`${this.backendUrl}addBook`, book, this.httpOptions).pipe(
+      map(value => {
+        console.log(value);
+        return this.serializer.fromJsonToBookId(value)
+      }),
       catchError(this.handleError)
     );
   }

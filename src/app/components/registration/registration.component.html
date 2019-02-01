@@ -1,21 +1,21 @@
-<mat-card class="registration-wrapper">
+<mat-card class="registration-wrapper">;
   <mat-card-header>
   <mat-card-title>Registration</mat-card-title>
   </mat-card-header>
   <mat-horizontal-stepper [linear]="isLinear" #stepper>
     <mat-step>
         <ng-template matStepLabel>{{sectionTitles[0]}}</ng-template>
-        <app-address-form (handleFormData)="handleFormData($event)" (handleFormValidation)="handleFormValidation($event)"></app-address-form>
+        <app-address-form (handleFormData)="handlePersonalDataForm($event)" (handleFormValidation)="handleFormValidation($event)"></app-address-form>
     </mat-step>
     <mat-step>
         <ng-template matStepLabel>{{sectionTitles[1]}}</ng-template>
-        <app-payment-form (handleFormData)="handleFormData($event)" (handleFormValidation)="handleFormValidation($event)"></app-payment-form>
+        <app-payment-form (handleFormData)="handleCreditCardForm($event)" (handleFormValidation)="handleFormValidation($event)"></app-payment-form>
     </mat-step>
     <mat-step>
         <ng-template matStepLabel>{{sectionTitles[2]}}</ng-template>
         <app-login-form 
             [registrationValid]="registrationValid"
-            (handleFormData)="handleFormData($event)"
+            (handleFormData)="handleLoginForm($event)"
             (handleFormValidation)="handleFormValidation($event)"
             (createCustomer)="createCustomer()"
         ></app-login-form>
