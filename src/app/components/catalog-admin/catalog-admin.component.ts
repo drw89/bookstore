@@ -37,9 +37,7 @@ export class CatalogAdminComponent implements OnInit {
 
   obSubmit() {
     const book: Book = Object.assign({}, this.adminForm.value);
-    console.log("clicked");
     this.apiService.addBook(book).subscribe(response => {
-      console.log(response.id);
       this.router.navigateByUrl('/products/undefined');
     });
   }

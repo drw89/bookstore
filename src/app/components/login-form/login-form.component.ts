@@ -28,7 +28,6 @@ export class LoginFormComponent implements OnInit {
   onSubmit() {
     const login: Login = Object.assign({}, this.formGroup.value);
     this.handleFormData.emit(login);
-    console.log('onSubmit', this.createCustomer);
     this.createCustomer.emit();
   }
 

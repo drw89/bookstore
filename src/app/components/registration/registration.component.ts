@@ -32,19 +32,15 @@ export class RegistrationComponent implements OnInit {
 
   handlePersonalDataForm(values: PersonalData) {
     // merge all form values from all forms
-    console.log(values);
     this.personalData = Object.assign(this.personalData, values);
   }
 
   handleCreditCardForm(values: CreditCard) {
     // merge all form values from all forms
     this.creditCard = Object.assign(this.creditCard, values);
-
-    console.log(this.creditCard);
   }
 
   handleLoginForm(values: Login) {
-    console.log(values);
     // merge all form values from all forms
     this.login = Object.assign(this.login, values);
   }

@@ -37,7 +37,6 @@ export class CheckoutComponent implements OnInit {
 
   handlePersonalDataForm(values: PersonalData) {
     // merge all form values from all forms
-    console.log(values);
     this.personalData = Object.assign(this.personalData, values);
   }
 
@@ -57,7 +56,7 @@ export class CheckoutComponent implements OnInit {
 
     this.books.forEach(book => purchaseOrderItem.push({isbn: book.isbn, quantity: 1}));
     const purchaseOrder: PurchaseOrder = {
-      customerId: customerId,
+      customerId: customerId || 1,
       items: purchaseOrderItem
     }
 
