@@ -33,8 +33,7 @@ export class AdminOverviewComponent implements OnInit {
 
   addToCart(book: Book) {
     this.localstorageService.pushToCart(book);
-    console.log("book with id: " + book.id + " will be added to the cart");
-    console.log('add to cart mock is missing...');
+    alert("book with id: " + book.id + " will be added to the cart");
   }
 
   onEdit(book: Book) {

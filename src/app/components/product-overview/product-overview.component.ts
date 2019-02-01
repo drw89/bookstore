@@ -33,7 +33,6 @@ export class ProductOverviewComponent implements OnInit {
 
   addToCart(book: any) {
     this.localstorageService.pushToCart(book);
-    console.log("book with id: " + book.id + " will be added to the cart");
-    console.log('add to cart mock is missing...');
+    alert("book with id: " + book.id + " will be added to the cart");
   }
 }
