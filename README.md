@@ -10,7 +10,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - Registering/Login
 - ShoppingCart
 - Order Check-Out
-- Catalog Admin
+- Catalog Admin (editing not working. left it there to show reuse of components)
 
 ### nonfunctional requirements
 
